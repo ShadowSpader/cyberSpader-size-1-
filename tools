@@ -1,0 +1,58 @@
+==================================================================
+DocuShield - Private Legal Document Triage Agent
+Tools, Frameworks, and Technologies Used
+==================================================================
+
+1. CORE AI & INFERENCE ENGINE
+------------------------------------------------------------------
+- Google Gemma Edge-Class LLM (gemma4:e2b / gemma2:2b):
+  On-device language model for clause extraction, plain-language 
+  simplification, risk flagging, calibrated silence, and lawyer escalation.
+- Ollama:
+  Local runtime and model server running entirely on loopback 
+  (127.0.0.1:11434) with zero cloud network egress.
+- ollama-python:
+  Official Python library used for local chat generation and real-time 
+  token streaming.
+
+2. APPLICATION FRAMEWORK & UI
+------------------------------------------------------------------
+- Python 3.10+:
+  Primary runtime language for agent orchestration.
+- Streamlit:
+  Interactive web application framework used to build the trustworthy,
+  high-contrast, non-lawyer accessible triage dashboard.
+- HTML5 / CSS3:
+  Custom styles injected into Streamlit for high-trust visual cards,
+  sidebar indicators, and responsive layouts.
+
+3. IN-MEMORY DOCUMENT PARSING (PRIVACY COMPLIANT)
+------------------------------------------------------------------
+- pypdf:
+  Local PDF parsing engine used to extract document text directly 
+  within memory without creating cached files on disk.
+- Python io.BytesIO:
+  In-memory byte buffer ensuring strict zero-disk persistence 
+  for uploaded user documents.
+
+4. DEVELOPMENT & REPOSITORY HYGIENE
+------------------------------------------------------------------
+- Visual Studio Code (VS Code):
+  Primary code editor, terminal environment, and Git staging interface.
+- Windows PowerShell:
+  Command-line interface used for running the local server, managing 
+  execution policies, and executing network audits.
+- Git:
+  Distributed version control for commits, branching, and rebasing.
+- GitHub & Git Credential Manager:
+  Open-source hosting platform for repository submission 
+  (ZERODAY-2026/cyberSpader-size-1-) and browser-based OAuth authentication.
+
+5. PRIVACY AUDITING & HARDWARE RUNTIME
+------------------------------------------------------------------
+- PowerShell Get-NetTCPConnection:
+  Network socket auditing tool used to verify zero external egress 
+  and confirm Ollama binds strictly to local loopback.
+- NVIDIA CUDA / GeForce RTX 3050:
+  Hardware acceleration target running quantized 4-bit weights 
+  within a ~1.8 GB VRAM footprint.
