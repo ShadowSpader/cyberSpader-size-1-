@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.agents/
+.claude/
+venv/
+.venv/
+*.log
+*.pdf
+.env
+.streamlit/secrets.toml
