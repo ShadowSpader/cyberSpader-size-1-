@@ -9,7 +9,7 @@ MODEL_NAME = "gemma4:e2b"
 
 st.set_page_config(page_title="Private Legal Triage Agent", layout="wide")
 
-st.title("🔒 Private On-Device Legal Document Triage Agent")
+st.title(" Private On-Device Legal Document Triage Agent")
 st.caption(f"ZeroDay OSS PS2 | 100% Offline Local Inference via Ollama ({MODEL_NAME}) | Zero Cloud Transmission")
 
 # Mandatory Legal Boundary Disclaimer (PS2 Requirement L8)
@@ -44,7 +44,7 @@ def check_prompt_injection(text: str) -> bool:
 
 # Sidebar: Runtime & Privacy Verification (Rubric Criterion 4 & 5)
 with st.sidebar:
-    st.header("🛡️ Privacy & Runtime Status")
+    st.header(" Privacy & Runtime Status")
     st.success("Mode: 100% On-Device Local Execution")
     st.markdown(f"""
     - **Model:** `{MODEL_NAME}`
@@ -58,7 +58,7 @@ with st.sidebar:
     st.caption("Rental agreements, employment contracts, non-disclosure agreements, and service contracts.")
 
 # Document Ingestion (Requirement L1 & L2)
-tab1, tab2 = st.tabs(["📂 Upload PDF / TXT", "✍️ Paste Contract Text"])
+tab1, tab2 = st.tabs([" Upload PDF / TXT", " Paste Contract Text"])
 raw_doc_text = ""
 
 with tab1:
@@ -85,18 +85,18 @@ with tab2:
 
 if raw_doc_text.strip():
     if check_prompt_injection(raw_doc_text):
-        st.warning("⚠️ Potential prompt injection detected in contract text. Enforcing strict document boundaries.")
+        st.warning(" Potential prompt injection detected in contract text. Enforcing strict document boundaries.")
 
     numbered_doc, _ = extract_numbered_passages(raw_doc_text)
 
     col_left, col_right = st.columns([1, 1])
 
     with col_left:
-        st.subheader("📖 Source Passages (Grounding Index)")
+        st.subheader(" Source Passages (Grounding Index)")
         st.text_area("Indexed Passages", value=numbered_doc, height=450, disabled=True)
 
     with col_right:
-        st.subheader("🔍 Triage Actions")
+        st.subheader("Triage Actions")
         mode = st.radio(
             "Select Triage Task:",
             ["Full Document Triage (Clauses, Risks & Missing Terms)", "Ask a Specific Question"]
